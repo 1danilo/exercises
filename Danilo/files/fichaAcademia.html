@@ -1,0 +1,18 @@
+
+<meta charset="UTF-8">
+    <h1>Cadastramento Academica Caelum</h1>
+<script>
+    function pegaNumero(mensagem) {
+        return parseFloat(prompt(mensagem).replace("," , "."))
+    }
+    var nomeAluno = prompt('Digite seu nome: ')
+    var peso = pegaNumero('Qual seu peso ?')
+    var altura = pegaNumero('Qual sua altura ?')
+    var nascimento = prompt('Qual sua data de nascimento ?')
+
+    document.write('Nome: ' + nomeAluno + '<br>')
+    document.write('Peso: ' + peso + '<br>')
+    document.write('Altura: ' + altura + '<br>')
+    document.write('Data de nascimento: ' + nascimento)
+
+</script>
