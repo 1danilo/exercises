@@ -1,5 +1,5 @@
 <h1>Pixabay API</h1>
 
-The exercise involved a lot of fundamentals such as classes, props, state, setState and map.
+The exercise involved a lot of fundamentals such as classes, props, state, setState and map. It uses Semantic UI as basic style.
 
-It also uses Axios in order to fetch data from the API. 
+Axios is being used in order to fetch data from the API.
