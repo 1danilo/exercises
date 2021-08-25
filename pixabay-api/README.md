@@ -2,6 +2,8 @@
 
 This exercise is from an Udemy course. 
 
-The exercise involved a lot of fundamentals such as classes, props, state, setState and map. It uses Semantic UI as basic style.
+It involves a lot of fundamentals such as functions, classes, props, state, setState and map. 
 
-Axios is being used in order to fetch data from the API.
+It uses Axios to fetch data from the API and Semantic UI as basic styling.
+
+Let's do this :)
