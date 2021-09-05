@@ -49,4 +49,17 @@ let withSlice = message.slice(0, 3);
 console.log(withSlice);
 */
 
+let message = "";
+
+if (message === "spanish") {
+  console.log("hola mundo");
+} else {
+  if (message === "french") {
+    console.log("bonjour tout le monde");
+  } else {
+    console.log("hello world");
+  }
+}
+
+
 
