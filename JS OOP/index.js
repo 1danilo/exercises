@@ -47,7 +47,7 @@ const another = new Circle(1);
 const message = "Don't be sad, be happy!";
 let withSlice = message.slice(0, 3);
 console.log(withSlice);
-*/
+
 
 let message = "";
 
@@ -61,5 +61,5 @@ if (message === "spanish") {
   }
 }
 
-
+*/
 
