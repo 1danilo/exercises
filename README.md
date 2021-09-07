@@ -2,6 +2,6 @@
 
 Exercises I have been working on since the beginning of my journey.
 
-Since the end of the bootcamp, been dividing my time between reviewing JavaScript basics, redoing the bootcamp and watching React lessons on a new purchased course on Udemy.
+Since the end of the bootcamp, been dividing my time between reviewing JavaScript basics, reviewing bootcamp materials and watching lessons of a few new purchased courses on Udemy (React, React Native and Angular).
 
 Danilo
