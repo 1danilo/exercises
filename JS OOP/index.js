@@ -64,11 +64,25 @@ if (message === "spanish") {
 
 
 /*
-Write a function which converts the input string to uppercase.
+kata #1 - Write a function which converts the input string to uppercase.
 
 function makeUpperCase(str) {
   return str.toUpperCase()
 }
+
+//alternative solution
+const makeUpperCase = str => str.toUpperCase();
 */
 
-const makeUpperCase = str => str.toUpperCase();
+
+/*
+kata #2 - Complete the function that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
+function between(a, b) {
+  // your code here
+  arr = []
+  for(i = a;i <= b; i++){ 
+      arr.push(i)
+  }
+  return arr
+}
+*/
