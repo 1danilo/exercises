@@ -117,3 +117,10 @@ function maps(x){
   return x.map(n => n * 2);
 }
 
+or
+
+maps = x => x.map(e => e * 2);
+
+or
+
+const maps = arr => arr.map( x => x * 2 )
