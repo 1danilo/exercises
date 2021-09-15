@@ -104,6 +104,16 @@ For example:
 [1, 2, 3] --> [2, 4, 6]
 
 function maps(x){
-
+let numbersTimeTwo = [];
+for(let i = 0; i < x.length; i++) {
+  numbersTimeTwo.push(x[i]*2);
+}
+return numbersTimeTwo
   }
+
+or
+
+function maps(x){
+  return x.map(n => n * 2);
+}
 
