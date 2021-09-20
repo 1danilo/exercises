@@ -63,6 +63,7 @@ const maps = arr => arr.map( x => x * 2 )
 */
 
 
+
 /*
 Opposites Attract
 Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
@@ -92,8 +93,8 @@ function lovefunc(flower1, flower2){
   return (flower1 + flower2) % 2 == 1;
 }
 
-*/
 
+*/
 All Star Code Challenge #18
 This Kata is intended as a small challenge for my students
 
@@ -111,4 +112,9 @@ Notes:
 The first argument can be an empty string
 The second string argument will always be of length 1
 
-
+function strCount(str, letter){  
+for (let i = 0; i <= str.length; i++) {
+    return str.split('').filter((x) => letter === x).length;
+}
+}
+/*
