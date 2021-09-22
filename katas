@@ -115,7 +115,7 @@ The second string argument will always be of length 1
 function strCount(str, letter){  
 for (let i = 0; i <= str.length; i++) {
     return str.split('').filter((x) => letter === x).length;
-}
+ }
 }
 
 or
@@ -135,10 +135,9 @@ function strCount(str, letter){
 or
 const strCount = (str, letter) => str.split(letter).length - 1;
 
-
 /*
 
-*/
+21/set
 not able to solve it yet
 6 kyu - Break camelCase
 Complete the solution so that the function will break up camel casing, using a space between words.
@@ -147,5 +146,5 @@ Example
 "camelCasing"  =>  "camel Casing"
 "identifier"   =>  "identifier"
 ""             =>  ""
-/*
+
 
