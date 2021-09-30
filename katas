@@ -1,5 +1,5 @@
 
-/*
+
 kata #1 - Write a function which converts the input string to uppercase.
 
 function makeUpperCase(str) {
@@ -8,7 +8,7 @@ function makeUpperCase(str) {
 
 //alternative solution
 const makeUpperCase = str => str.toUpperCase();
-*/
+
 
 
 /*
