@@ -1,143 +1,111 @@
 
 
-kata #1 - Write a function which converts the input string to uppercase.
+/*
+kata#10
+8kyu fake binary
+Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
 
-function makeUpperCase(str) {
-  return str.toUpperCase()
+function fakeBin(x) {
+    return x.split('').map(n => n < 5 ? 0 : 1).join('');
 }
 
-//alternative solution
-const makeUpperCase = str => str.toUpperCase();
+or
 
-
-
-/*
-kata #2 - Complete the function that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
-function between(a, b) {
-  // your code here
-  arr = []
-  for(i = a;i <= b; i++){ 
-      arr.push(i)
+function fakeBin(x){
+  let result = '';
+  for(let i = 0; i < x.length; i++){
+    x[i] < 5 ? result += 0 : result += 1;
   }
-  return arr
+  return result;
 }
-*/
 
-/*
-kata #3 - Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
-The output should be two capital letters with a dot separating them.
-It should look like this:
-Sam Harris => S.H
-Patrick Feeney => P.F
-*/
+or gigabrain
 
-/*
-Beginner - Lost Without a Map
-Given an array of integers, return a new array with each value doubled.
-
-For example:
-
-[1, 2, 3] --> [2, 4, 6]
-
-function maps(x){
-let numbersTimeTwo = [];
-for(let i = 0; i < x.length; i++) {
-  numbersTimeTwo.push(x[i]*2);
+function fakeBin(x) {
+  return x.replace(/\d/g, d => d < 5 ? 0 : 1);
 }
-return numbersTimeTwo
+
+or
+
+function fakeBin(str){
+  var newStr = "";
+  for(var i=0;i<str.length;i++){
+    if(Number(str[i])>=5){
+      newStr += "1"
+    }
+    else{
+      newStr += "0";
+    }
   }
-
-or
-
-function maps(x){
-  return x.map(n => n * 2);
-}
-
-or
-
-maps = x => x.map(e => e * 2);
-
-or
-
-const maps = arr => arr.map( x => x * 2 )
-*/
-
-
-
-/*
-Opposites Attract
-Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
-Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
-
-function lovefunc(flower1, flower2){
-  if (flower1 % 2 === 0 && flower2 % 2 === 1 || flower1 % 2 === 1 && flower2 % 2 === 0) {
-     return true;
-} else {
-  return false
-}
-  }
-
-or
-
-function lovefunc(flower1, flower2){
-  return flower1 % 2 !== flower2 % 2;
-}
-
-or 
-
-function lovefunc(flower1, flower2){
-  return (flower1 + flower2) % 2 === 1
-}
-
-function lovefunc(flower1, flower2){
-  return (flower1 + flower2) % 2 == 1;
+  return newStr;
 }
 
 */
 
 /*
-All Star Code Challenge #18
-This Kata is intended as a small challenge for my students
+kata#9
+7 kyu - Categorize New Member
+The Western Suburbs Croquet Club has two categories of membership, Senior and Open. They would like your help with an application form that will tell prospective members which category they will be placed.
 
-All Star Code Challenge #18
+To be a senior, a member must be at least 55 years old and have a handicap greater than 7. In this croquet club, handicaps range from -2 to +26; the better the player the lower the handicap.
 
-Create a function that accepts 2 string arguments and returns an integer of the count of occurrences the 2nd argument is found in the first one.
+Input
+Input will consist of a list of lists containing two items each. Each list contains information for a single potential member. Information consists of an integer for the person's age and an integer for the person's handicap.
 
-If no occurrences can be found, a count of 0 should be returned.
+Note for F#: The input will be of (int list list) which is a List<List>
 
-("Hello", "o")  ==>  1
-("Hello", "l")  ==>  2
-("", "z")       ==>  0
-Notes:
+Example Input
+[[18, 20],[45, 2],[61, 12],[37, 6],[21, 21],[78, 9]]
+Output
+Output will consist of a list of string values (in Haskell: Open or Senior) stating whether the respective member is to be placed in the senior or open category.
 
-The first argument can be an empty string
-The second string argument will always be of length 1
+Example Output
+["Open", "Open", "Senior", "Open", "Open", "Senior"]
 
-function strCount(str, letter){  
-for (let i = 0; i <= str.length; i++) {
-    return str.split('').filter((x) => letter === x).length;
- }
+*/
+
+/*
+kata#8
+7 kyu - Reverse words
+
+function reverseWords(str) {
+return str.split('').reverse().join('').split(' ').reverse().join(' ');
 }
 
 or
-function strCount(str, letter){  
-  
-  let count = 0;
-  
+
+function reverseWords(str) {
+  return str.split(' ').map(function(word){
+    return word.split('').reverse().join('');
+  }).join(' ');
+}
+
+or
+
+function reverseWords(str) {
+  return str.split(' ').map( str => str.split('').reverse().join('') ).join(' ');
+}
+
+or
+
+function reverseWords(str) {
+  let reversedWord = '';
+  let reversedStr = '';
   for (let i = 0; i < str.length; i++) {
-    if (str[i] == letter)
-      count++;
+    if (str[i] !== ' ') {
+      reversedWord = str[i] + reversedWord;
+    } else {
+      reversedStr += reversedWord + ' ';
+      reversedWord = '';
+    }
   }
-  
-  return count;
-  
+  return reversedStr + reversedWord;
 }
 
-or
-const strCount = (str, letter) => str.split(letter).length - 1;
 */
 
 /*
+kata#7
 8 kyu - Name on billboard
 You can print your name on a billboard ad. Find out how much it will cost you. Each letter has a default price of £30, but that can be different if you are given 2 parameters instead of 1.
 
@@ -181,106 +149,137 @@ function billboard(name, price = 30){
 */
 
 /*
-7 kyu - Reverse words
+kata#6
+All Star Code Challenge #18
+This Kata is intended as a small challenge for my students
 
-function reverseWords(str) {
-return str.split('').reverse().join('').split(' ').reverse().join(' ');
+All Star Code Challenge #18
+
+Create a function that accepts 2 string arguments and returns an integer of the count of occurrences the 2nd argument is found in the first one.
+
+If no occurrences can be found, a count of 0 should be returned.
+
+("Hello", "o")  ==>  1
+("Hello", "l")  ==>  2
+("", "z")       ==>  0
+Notes:
+
+The first argument can be an empty string
+The second string argument will always be of length 1
+
+function strCount(str, letter){  
+for (let i = 0; i <= str.length; i++) {
+    return str.split('').filter((x) => letter === x).length;
+ }
 }
 
 or
-
-function reverseWords(str) {
-  return str.split(' ').map(function(word){
-    return word.split('').reverse().join('');
-  }).join(' ');
-}
-
-or
-
-function reverseWords(str) {
-  return str.split(' ').map( str => str.split('').reverse().join('') ).join(' ');
-}
-
-or
-
-function reverseWords(str) {
-  let reversedWord = '';
-  let reversedStr = '';
+function strCount(str, letter){  
+  
+  let count = 0;
+  
   for (let i = 0; i < str.length; i++) {
-    if (str[i] !== ' ') {
-      reversedWord = str[i] + reversedWord;
-    } else {
-      reversedStr += reversedWord + ' ';
-      reversedWord = '';
-    }
+    if (str[i] == letter)
+      count++;
   }
-  return reversedStr + reversedWord;
+  
+  return count;
+  
+}
+
+or
+const strCount = (str, letter) => str.split(letter).length - 1;
+*/
+
+/*
+kata#5
+Opposites Attract
+Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
+Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
+
+function lovefunc(flower1, flower2){
+  if (flower1 % 2 === 0 && flower2 % 2 === 1 || flower1 % 2 === 1 && flower2 % 2 === 0) {
+     return true;
+} else {
+  return false
+}
+  }
+
+or
+
+function lovefunc(flower1, flower2){
+  return flower1 % 2 !== flower2 % 2;
+}
+
+or 
+
+function lovefunc(flower1, flower2){
+  return (flower1 + flower2) % 2 === 1
+}
+
+function lovefunc(flower1, flower2){
+  return (flower1 + flower2) % 2 == 1;
 }
 
 */
 
 /*
-7 kyu - Categorize New Member
-The Western Suburbs Croquet Club has two categories of membership, Senior and Open. They would like your help with an application form that will tell prospective members which category they will be placed.
+kata#4
+Beginner - Lost Without a Map
+Given an array of integers, return a new array with each value doubled.
 
-To be a senior, a member must be at least 55 years old and have a handicap greater than 7. In this croquet club, handicaps range from -2 to +26; the better the player the lower the handicap.
+For example:
 
-Input
-Input will consist of a list of lists containing two items each. Each list contains information for a single potential member. Information consists of an integer for the person's age and an integer for the person's handicap.
+[1, 2, 3] --> [2, 4, 6]
 
-Note for F#: The input will be of (int list list) which is a List<List>
+function maps(x){
+let numbersTimeTwo = [];
+for(let i = 0; i < x.length; i++) {
+  numbersTimeTwo.push(x[i]*2);
+}
+return numbersTimeTwo
+  }
 
-Example Input
-[[18, 20],[45, 2],[61, 12],[37, 6],[21, 21],[78, 9]]
-Output
-Output will consist of a list of string values (in Haskell: Open or Senior) stating whether the respective member is to be placed in the senior or open category.
+or
 
-Example Output
-["Open", "Open", "Senior", "Open", "Open", "Senior"]
+function maps(x){
+  return x.map(n => n * 2);
+}
 
+or
+
+maps = x => x.map(e => e * 2);
+
+or
+
+const maps = arr => arr.map( x => x * 2 )
 */
 
 /*
-8kyu fake binary
-Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
-
-function fakeBin(x) {
-    return x.split('').map(n => n < 5 ? 0 : 1).join('');
-}
-
-or
-
-function fakeBin(x){
-  let result = '';
-  for(let i = 0; i < x.length; i++){
-    x[i] < 5 ? result += 0 : result += 1;
-  }
-  return result;
-}
-
-or gigabrain
-
-function fakeBin(x) {
-  return x.replace(/\d/g, d => d < 5 ? 0 : 1);
-}
-
-or
-
-function fakeBin(str){
-  var newStr = "";
-  for(var i=0;i<str.length;i++){
-    if(Number(str[i])>=5){
-      newStr += "1"
-    }
-    else{
-      newStr += "0";
-    }
-  }
-  return newStr;
-}
-
+kata #3 - Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+The output should be two capital letters with a dot separating them.
+It should look like this:
+Sam Harris => S.H
+Patrick Feeney => P.F
 */
 
+/*
+kata #2 - Complete the function that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
+function between(a, b) {
+  // your code here
+  arr = []
+  for(i = a;i <= b; i++){ 
+      arr.push(i)
+  }
+  return arr
+}
+*/
 
+kata #1 - Write a function which converts the input string to uppercase.
 
+function makeUpperCase(str) {
+  return str.toUpperCase()
+}
 
+//alternative solution
+const makeUpperCase = str => str.toUpperCase();
