@@ -18,15 +18,18 @@ router.get("/:id", (req, res) => {
 });
 
 //Creating one
-router.post("/posts", async (req, res) => {
+router.post("/", async (req, res) => {
   const post = new Post({
-    author: req.params.author,
-    title: req.body.name,
+    author: req.body.author,
+    title: req.body.title,
     text: req.body.text,
   });
   try {
-    const 
-  } catch (err)
+    const newPost = await post.save();
+    res.status(201).json(newPost);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
 });
 
 //Updating one
