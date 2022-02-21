@@ -3,18 +3,20 @@
  *@NScriptType ClientScript
  */
 define([], function () {
-  function pageInit() {
-    alert("page init");
+  function pageInit(scriptContext) {
+    alert("page init ");
   }
-  function saveRecord(context) {}
-  function validateField(context) {}
-  function fieldChanged(context) {}
+  function fieldChanged(scriptContext) {
+    alert("field changed");
+  }
   function postSourcing(context) {}
   function lineInit(context) {}
   function validateDelete(context) {}
   function validateInsert(context) {}
   function validateLine(context) {}
   function sublistChanged(context) {}
+  function saveRecord() {}
+  function validateField() {}
   return {
     pageInit: pageInit,
     fieldChanged: fieldChanged,
