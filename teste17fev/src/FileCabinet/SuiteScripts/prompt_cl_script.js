@@ -1,22 +1,79 @@
 /**
  *@NApiVersion 2.x
  *@NScriptType ClientScript
+ *NModuleScope SameAccount
  */
-define([], function () {
+define(["N/ui/dialog"], function (dialog) {
   function pageInit(scriptContext) {
-    alert("page init ");
+    // alert("page init " + scriptContext.mode);
+    //     debugger;
+    //     console.log("Executou page init no modo " + scriptContext.mode);
+    //     dialog.alert({
+    //       title: "I am an Alert",
+    //       message: "Executou page Init no modo" + scriptContext.mode,
+    //     });
   }
+
   function fieldChanged(scriptContext) {
-    alert("field changed");
+    const fieldId = scriptContext.fieldId;
+
+    if (fieldId === "phone") {
+      dialog
+        .alert({
+          title: "fieldChanged FORMA ERRADA",
+          message:
+            "Alterou o campo " +
+            fieldId +
+            " com o valor: " +
+            document.getElementById("phone").value,
+        })
+
+        .then(function () {
+          alert("clicou ok forma errada");
+        })
+        .catch(function () {});
+
+      const currentRecord = scriptContext.currentRecord;
+      const phone = currentRecord.getValue({ fieldId: fieldId });
+
+      dialog
+        .alert({
+          title: "fieldChanged FORMA CORRETA",
+          message: "Alterou o campo" + fieldId + "com o valor: " + phone,
+        })
+
+        .then(function () {
+          alert("clicou ok forma certa");
+        })
+        .catch(function () {});
+    }
   }
-  function postSourcing(context) {}
-  function lineInit(context) {}
-  function validateDelete(context) {}
-  function validateInsert(context) {}
-  function validateLine(context) {}
-  function sublistChanged(context) {}
-  function saveRecord() {}
-  function validateField() {}
+
+  function postSourcing(scriptContext) {}
+
+  function sublistChanged(scriptContext) {}
+
+  function lineInit(scriptContext) {}
+
+  function validateField(scriptContext) {
+    return true;
+  }
+
+  function validateLine(scriptContext) {
+    return true;
+  }
+
+  function validateInsert(scriptContext) {
+    return true;
+  }
+
+  function validateDelete(scriptContext) {
+    return true;
+  }
+
+  function saveRecord(scriptContext) {
+    return true;
+  }
   return {
     pageInit: pageInit,
     fieldChanged: fieldChanged,
