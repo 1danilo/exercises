@@ -3,7 +3,7 @@
  *@NScriptType ClientScript
  *NModuleScope SameAccount
  */
-define(["N/ui/dialog"], function (dialog) {
+define(["N/ui/dialog", "N/error"], function (dialog, error) {
   function pageInit(scriptContext) {
     // alert("page init " + scriptContext.mode);
     //     debugger;
@@ -18,34 +18,13 @@ define(["N/ui/dialog"], function (dialog) {
     const fieldId = scriptContext.fieldId;
 
     if (fieldId === "phone") {
-      dialog
-        .alert({
-          title: "fieldChanged FORMA ERRADA",
-          message:
-            "Alterou o campo " +
-            fieldId +
-            " com o valor: " +
-            document.getElementById("phone").value,
-        })
-
-        .then(function () {
-          alert("clicou ok forma errada");
-        })
-        .catch(function () {});
-
       const currentRecord = scriptContext.currentRecord;
       const phone = currentRecord.getValue({ fieldId: fieldId });
 
-      dialog
-        .alert({
-          title: "fieldChanged FORMA CORRETA",
-          message: "Alterou o campo" + fieldId + "com o valor: " + phone,
-        })
-
-        .then(function () {
-          alert("clicou ok forma certa");
-        })
-        .catch(function () {});
+      dialog.alert({
+        title: "fieldChanged FORMA CORRETA",
+        message: "Alterou o campo" + fieldId + "com o valor: " + phone,
+      });
     }
   }
 
@@ -72,8 +51,19 @@ define(["N/ui/dialog"], function (dialog) {
   }
 
   function saveRecord(scriptContext) {
+    var currentRecord = scriptContext.currentRecord;
+    const phone = currentRecord.getValue({ fieldId: "phone" });
+
+    if (!phone) {
+      dialog.alert({
+        title: "saveRecord",
+        message: "Algo falta ser preenchido",
+      });
+      return false;
+    }
     return true;
   }
+
   return {
     pageInit: pageInit,
     fieldChanged: fieldChanged,
