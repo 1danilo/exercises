@@ -25,6 +25,11 @@ define(["N/ui/dialog", "N/error"], function (dialog, error) {
         title: "fieldChanged FORMA CORRETA",
         message: "Alterou o campo" + fieldId + "com o valor: " + phone,
       });
+      currentRecord.setValue({
+        fieldId: fieldId,
+        value: "",
+        ignoreFieldChange: true,
+      });
     }
   }
 
