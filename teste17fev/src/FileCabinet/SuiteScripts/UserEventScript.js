@@ -10,11 +10,13 @@ define(["N/record"], function (record) {
     if (!customerRecord.getValue("salesrep"))
       customerRecord.setValue("salesrep", 46); // replace '46'  with one specific to your account
   }
+
   function beforeSubmit(context) {
     if (context.type !== context.UserEventType.CREATE) return;
     var customerRecord = context.newRecord;
     customerRecord.setValue("comments", "Please follow up with this customer!");
   }
+
   function afterSubmit(context) {
     if (context.type !== context.UserEventType.CREATE) return;
     var customerRecord = context.newRecord;
