@@ -3,8 +3,16 @@
  * @NScriptType Suitelet
  * @NModuleScope SameAccount
  */
-define(["N/search"], function (search) {
+define(["N/search", "N/ui/serverWidget"], function (search, serverWidget) {
   function onRequest(context) {
+    var form = serverWidget.createForm({
+      title: "Simple Form",
+    });
+
+    context.response.writePage({ pageObject: form });
+  }
+
+  function exemploBuscaCustomer() {
     const results = search
       .create({
         type: search.Type.CUSTOMER,
