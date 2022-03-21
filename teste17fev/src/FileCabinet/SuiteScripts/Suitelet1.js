@@ -35,6 +35,64 @@ define(["N/search", "N/ui/serverWidget"], function (search, serverWidget) {
       text: "Albert",
     });
 
+    var sublist = form.addSublist({
+      id: "sublistid",
+      type: serverWidget.SublistType.LIST,
+      label: "Inline Editor Sublist",
+    });
+
+    sublist.addField({
+      id: "custpage_name",
+      type: serverWidget.FieldType.TEXT,
+      label: "Nome",
+    });
+
+    sublist.addField({
+      id: "custpage_phone",
+      type: serverWidget.FieldType.TEXT,
+      label: "Telefone",
+    });
+
+    const results = search
+      .create({
+        type: search.Type.CUSTOMER,
+        filters: [
+          {
+            name: "phone",
+            operator: search.Operator.STARTSWITH,
+            values: "(031)",
+          },
+        ],
+        columns: [
+          {
+            name: "companyname",
+          },
+          {
+            name: "phone",
+          },
+        ],
+      })
+      .run()
+      .getRange({
+        start: 0,
+        end: 1000,
+      })
+      .forEach(function (result, resultIndex) {
+        const columns = result.columns;
+
+        sublist.setSublistValue({
+          id: "custpage_name",
+          line: resultIndex,
+          value: result.getValue(columns[0]),
+        });
+
+        sublist.setSublistValue({
+          id: "custpage_phone",
+          line: resultIndex,
+          value: result.getValue(columns[1]),
+        });
+      });
+
     context.response.writePage({ pageObject: form });
   }
 
