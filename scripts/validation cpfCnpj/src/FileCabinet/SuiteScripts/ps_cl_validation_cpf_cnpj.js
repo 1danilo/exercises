@@ -2,9 +2,41 @@
  *@NApiVersion 2.x
  *@NScriptType ClientScript
  */
-define(["N/search"], function (search) {
+define(["N/search", "N/error"], function (search, error) {
+  // usar um if para validar o retorno da funcao buscaCnpj e bloquear a criação desse registro
   function saveRecord(context) {
-    // usar um if para validar o retorno da funcao buscaCnpj e bloquear a criação desse registro
+    let currentRecord = context.currentRecord;
+    const recordType = currentRecord.type;
+
+    if (currentRecord.getValue({ fieldId: "custentity_psg_br_cnpj" })) {
+      const objeto = {
+        type: recordType,
+        name: "custentity_psg_br_cnpj",
+        value: currentRecord.getValue({ fieldId: "custentity_psg_br_cnpj" }),
+      };
+      const retorno = buscaCnpjCpf(objeto);
+      if (retorno != "" && retorno != currentRecord.id) {
+        throw error.create({
+          name: "Erro",
+          message: "CNPJ já cadastrado!",
+        });
+      }
+    }
+    if (currentRecord.getValue({ fieldId: "custentity_psg_br_cpf" })) {
+      const objeto = {
+        type: recordType,
+        name: "custentity_psg_br_cpf",
+        value: currentRecord.getValue({ fieldId: "custentity_psg_br_cpf" }),
+      };
+      const retorno = buscaCnpjCpf(objeto);
+      if (retorno != "" && retorno != currentRecord.id) {
+        throw error.create({
+          name: "Erro",
+          message: "CPF já cadastrado!",
+        });
+      }
+    }
+    return true;
   }
 
   function fieldChanged(context) {
@@ -20,18 +52,27 @@ define(["N/search"], function (search) {
     };
 
     if (fieldId === "custentity_psg_br_cnpj") {
-      if (!currentRecord.getValue({ fieldId: fieldId })) return true;
-      // window.alert("CNPJ já cadastrado!");
+      if (
+        !currentRecord.getValue({
+          fieldId: fieldId,
+        })
+      )
+        return true;
       const retorno = buscaCnpjCpf(objeto); // declaramos uma constante para receber o retorno da nossa função buscaCnpjCpf
-      if (retorno != "") {
+      if (retorno != "" && retorno != currentRecord.id) {
         window.alert("CNPJ já cadastrado!");
       }
     }
 
     if (fieldId === "custentity_psg_br_cpf") {
-      if (!currentRecord.getValue({ fieldId: fieldId })) return true;
+      if (
+        !currentRecord.getValue({
+          fieldId: fieldId,
+        })
+      )
+        return true;
       const retorno = buscaCnpjCpf(objeto);
-      if (retorno != "") {
+      if (retorno != "" && retorno != currentRecord.id) {
         window.alert("CPF já cadastrado!");
       }
     }
