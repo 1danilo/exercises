@@ -5,11 +5,15 @@
 define(["N/search", "N/error"], function (search, error) {
   // usar um if para validar o retorno da funcao buscaCnpj e bloquear a criação desse registro
   function saveRecord(context) {
+    // sempre ajuda dar console.log no context -> console.log(context)
+    // o conteúdo dessa funcão não possui o elemento fieldId
     let currentRecord = context.currentRecord;
     const recordType = currentRecord.type;
 
     if (currentRecord.getValue({ fieldId: "custentity_psg_br_cnpj" })) {
+      // checa se o campo cnpj possui algum valor
       const objeto = {
+        // o objeto esta dentro do if porque nao conseguimos acessar o elemento fieldId para realizar a busca
         type: recordType,
         name: "custentity_psg_br_cnpj",
         value: currentRecord.getValue({ fieldId: "custentity_psg_br_cnpj" }),
