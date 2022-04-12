@@ -5,10 +5,36 @@
 define(["N/search", "N/error"], function (search, error) {
   // usar um if para validar o retorno da funcao buscaCnpj e bloquear a criação desse registro
   function saveRecord(context) {
-    // sempre ajuda dar console.log no context -> console.log(context)
+    // criar um if -> se o valor do campo (isperson) for igual a "F", se entrar nessa condição fazer validação para cnpj
+    // se não, fazer validação para cpf
+
     // o conteúdo dessa funcão não possui o elemento fieldId
     let currentRecord = context.currentRecord;
     const recordType = currentRecord.type;
+    let valorZeradoCpf = "00000000000";
+    let valorZeradoCnpj = "00000000000000";
+
+    if (currentRecord.getValue({ fieldId: "isperson" }) == "F") {
+      if (
+        currentRecord.getValue({ fieldId: "custentity_psg_br_cnpj" }) ===
+        valorZeradoCnpj
+      ) {
+        return true;
+      }
+    } else {
+      if (
+        currentRecord.getValue({ fieldId: "custentity_psg_br_cpf" }) ===
+        valorZeradoCpf
+      ) {
+        return true;
+      }
+    }
+
+    // criar uma forma em que nao seja possível salvar quando o campo estiver vazio
+
+    // sempre ajuda dar console.log no context -> console.log(context)
+    // criar um outro if com a condição dos valores do campo cpf (igual a 11 digitos 0) e cnpj (igual a 14 digitos 0)
+    // e se o if for verdadeiro, retornar como true (==) e pra utilizar os 2 dentro do mesmo if usar ||
 
     if (currentRecord.getValue({ fieldId: "custentity_psg_br_cnpj" })) {
       // checa se o campo cnpj possui algum valor
@@ -55,6 +81,28 @@ define(["N/search", "N/error"], function (search, error) {
       value: currentRecord.getValue({ fieldId: fieldId }), // é uma função do currentRecord que retorna o valor do campo
     };
 
+    // criar um outro if com a condição dos valores do campo cpf (igual a 11 digitos 0) e cnpj (igual a 14 digitos 0)
+    // e se o if for verdadeiro, retornar como true (==) e pra utilizar os 2 dentro do mesmo if usar ||
+    let valorZeradoCpf = "00000000000";
+    let valorZeradoCnpj = "00000000000000";
+    // criar um outro if com a condição dos valores do campo cpf (igual a 11 digitos 0) e cnpj (igual a 14 digitos 0)
+    // e se o if for verdadeiro, retornar como true (==) e pra utilizar os 2 dentro do mesmo if usar ||
+    if (currentRecord.getValue({ fieldId: "isperson" }) == "F") {
+      if (
+        currentRecord.getValue({ fieldId: "custentity_psg_br_cnpj" }) ===
+        valorZeradoCnpj
+      ) {
+        return true;
+      }
+    } else {
+      if (
+        currentRecord.getValue({ fieldId: "custentity_psg_br_cpf" }) ===
+        valorZeradoCpf
+      ) {
+        return true;
+      }
+    }
+
     if (fieldId === "custentity_psg_br_cnpj") {
       if (
         !currentRecord.getValue({
@@ -62,6 +110,7 @@ define(["N/search", "N/error"], function (search, error) {
         })
       )
         return true;
+
       const retorno = buscaCnpjCpf(objeto); // declaramos uma constante para receber o retorno da nossa função buscaCnpjCpf
       if (retorno != "" && retorno != currentRecord.id) {
         window.alert("CNPJ já cadastrado!");
@@ -75,9 +124,15 @@ define(["N/search", "N/error"], function (search, error) {
         })
       )
         return true;
+
       const retorno = buscaCnpjCpf(objeto);
       if (retorno != "" && retorno != currentRecord.id) {
         window.alert("CPF já cadastrado!");
+      }
+    }
+    if (fieldId === "custentity_psg_br_cpf") {
+      if (fieldId == "") {
+        window.alert("Favor preencher o campo CPF");
       }
     }
   }
