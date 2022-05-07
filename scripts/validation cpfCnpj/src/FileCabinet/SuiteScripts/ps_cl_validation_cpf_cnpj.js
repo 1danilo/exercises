@@ -87,6 +87,7 @@ define(["N/search", "N/error"], function (search, error) {
     let valorZeradoCnpj = "00000000000000";
     // criar um outro if com a condição dos valores do campo cpf (igual a 11 digitos 0) e cnpj (igual a 14 digitos 0)
     // e se o if for verdadeiro, retornar como true (==) e pra utilizar os 2 dentro do mesmo if usar ||
+
     if (currentRecord.getValue({ fieldId: "isperson" }) == "F") {
       if (
         currentRecord.getValue({ fieldId: "custentity_psg_br_cnpj" }) ===

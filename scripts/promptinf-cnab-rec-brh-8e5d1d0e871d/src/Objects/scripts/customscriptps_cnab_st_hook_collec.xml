@@ -1,0 +1,25 @@
+<suitelet scriptid="customscriptps_cnab_st_hook_collec">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>PS Webhook de Boletos</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/prompt-cnab-rec/suitelets/ps_cnab_st_hook_collect.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeployps_cnab_st_hook_collect">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+      <title>PS Webhook de Boletos</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>

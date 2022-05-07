@@ -1,0 +1,37 @@
+<centercategory scriptid="custcentercategory_ps_cnab_accounts_receivable_br">
+  <center>BASIC</center>
+  <centertab>[scriptid=custcentertab_ps_cnab_br]</centertab>
+  <label>Contas a Receber</label>
+  <links>
+    <link>
+      <linklabel>Gerar boletos</linklabel>
+      <linkobject>[scriptid=customscript_ps_cnab_st_add_collect_br.customdeploy_ps_cnab_st_add_collect_br]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Ver boletos</linklabel>
+      <linkobject>[scriptid=customrecord_ps_collect]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Ver lotes de boletos</linklabel>
+      <linkobject>[scriptid=customrecord_ps_collect_batch]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Gerar remessa</linklabel>
+      <linkobject>[scriptid=customscript_ps_cnab_st_gen_cob_remit_br.customdeploy_ps_cnab_st_gen_cob_remit_br]</linkobject>
+      <linktasktype>SCRIPT</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+    <link>
+      <linklabel>Ver remessas de boletos</linklabel>
+      <linkobject>[scriptid=customrecord_ps_collect_remit]</linkobject>
+      <linktasktype>LIST</linktasktype>
+      <shortlist>F</shortlist>
+    </link>
+  </links>
+</centercategory>

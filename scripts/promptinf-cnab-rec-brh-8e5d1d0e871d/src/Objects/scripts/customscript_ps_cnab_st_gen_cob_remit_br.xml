@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_ps_cnab_st_gen_cob_remit_br">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>ps_cnab_st_generate_collect_remittance</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/prompt-cnab-rec/suitelets/ps_cnab_st_generate_collect_remittance_br.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_ps_cnab_st_gen_cob_remit_br">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>F</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole></runasrole>
+      <status>RELEASED</status>
+      <title>ps_cnab_st_generate_collect_remittance</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>
